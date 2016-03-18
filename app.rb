@@ -7,12 +7,12 @@ require_relative 'app/models/Contact'
 
 #list all the contacts
 def list
-	p contact_list = Contact.pluck(:list, :Name, :Phone, :Address)
+	p contact_list = Contact.all
 
 	puts "list 	Name			Phone			Address"
 	puts "====	====			=====			======="
 	contact_list.each do |contact|
-		printf("%-7s %-23s %-23s %-20s\n", contact[0], contact[1], contact[2], contact[3])
+		printf("%-7s %-23s %-23s %-20s\n", contact.list, contact.Name, contact.Phone, contact.Address)
 	end
 end 
 
@@ -56,8 +56,8 @@ def delete(id)
 end
 
 method = ARGV
-# p Contact.find_by(list: method[0])
-# p Contact.find_by(list: 1)
+p Contact.find_by(list: method[0])
+p Contact.find_by(list: 1)
 
 
 case method[0]
